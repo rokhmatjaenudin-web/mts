@@ -207,9 +207,25 @@ app.get('/api/dashboard', verifyToken, async (req, res, next) => {
 });
 
 app.use((req, res) => {
-  if (req.path.startsWith('/admin')) return res.sendFile(path.join(publicDir, 'admin', 'dashboard.html'));
-  res.status(404).sendFile(path.join(publicDir, 'index.html'));
+  // jika endpoint API tidak ditemukan
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({
+      message: 'Endpoint API tidak ditemukan'
+    });
+  }
+
+  // halaman admin
+  if (req.path.startsWith('/admin')) {
+    return res.sendFile(
+      path.join(publicDir, 'admin', 'dashboard.html')
+    );
+  }
+
+  // frontend SPA
+  res.sendFile(path.join(publicDir, 'index.html'));
 });
+
+
 
 app.use((error, req, res, next) => {
   console.error(error);
