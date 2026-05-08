@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const multer = require('multer');
 const validator = require('validator');
 const XLSX = require('xlsx');
-const { createCaptcha, login } = require('./auth');
+const { createCaptcha, login, verifyToke } = require('./auth');
 const {
   HEADERS,
   readStudents,
