@@ -7,7 +7,16 @@ const state = {
 const $ = (selector) => document.querySelector(selector);
 const api = async (url, options = {}) => {
   const response = await fetch(url, { headers: { 'Content-Type': 'application/json', ...options.headers }, ...options });
-  const data = await response.json().catch(() => ({}));
+  const response = await fetch(url);
+
+const contentType = response.headers.get('content-type');
+
+if (!contentType || !contentType.includes('application/json')) {
+  const text = await response.text();
+  throw new Error(`Response bukan JSON: ${text.slice(0,100)}`);
+}
+
+const data = await response.json().catch(() => ({}));
   if (!response.ok) throw Object.assign(new Error(data.message || 'Request gagal.'), { status: response.status, data });
   return data;
 };
