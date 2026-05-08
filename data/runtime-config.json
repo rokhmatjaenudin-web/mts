@@ -1,0 +1,17 @@
+{
+  "adminPasswordHash": "$2a$12$FCUsUn3ZM2g4JQm9AZBAp.tU3RrMC1dcP9y6TgjUReVAXdXqTNsMO",
+  "schoolSettings": {
+    "schoolName": "MTs ARROBI'AH AZZAIN GRINTING",
+    "academicYear": "2025/2026",
+    "announcementOpenAt": "2026-05-31T20:00:00.000Z",
+    "timezone": "Asia/Jakarta",
+    "runningText": "Pengumuman kelulusan dapat diakses sesuai jadwal resmi sekolah. Pastikan NISN yang dimasukkan benar.",
+    "showAnnouncementBoard": true,
+    "announcementBoard": "Selamat datang di laman resmi pengumuman kelulusan MTs Arrobiyah Azzain. Gunakan NISN sesuai data sekolah untuk melihat hasil kelulusan.",
+    "principalWelcome": "Assalamu'alaikum Wr. Wb.\n\nAlhamdulillah, segala puji bagi Allah SWT yang telah memberikan rahmat dan karunia-Nya sehingga para peserta didik MTs Arrobi'ah Azzain Grinting dapat menyelesaikan pendidikan di jenjang Madrasah Tsanawiyah.\n\nKepada seluruh siswa-siswi yang telah dinyatakan lulus, kami mengucapkan selamat. Semoga ilmu yang telah diperoleh menjadi bekal yang bermanfaat untuk masa depan yang lebih cerah.\n\nKepada orang tua dan wali murid, terima kasih atas kepercayaan dan kerjasamanya selama ini. Semoga putra-putri kita senantiasa dalam lindungan Allah SWT.\n\nWassalamu'alaikum Wr. Wb.",
+    "locked": false,
+    "principal": "KHUDORI, S.Ag.,M.Pd",
+    "contact": "+6281234567890",
+    "address": "Jl. D. Sudrajat Desa Grinting Bulakamba Brebes"
+  }
+}
