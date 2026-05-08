@@ -7,7 +7,8 @@ const fallbackAdminHash = '$2a$12$ZouoJOqIVlLHIgg98QMkKuGuLfIS.0rTCuGaCo/XpMV3ar
 
 function jwtSecret() {
   if (process.env.JWT_SECRET) return process.env.JWT_SECRET;
-  if (process.env.NODE_ENV === 'production') throw new Error('JWT_SECRET wajib diatur di environment production.');
+ if (process.env.NODE_ENV === 'production')
+  throw new Error('JWT_SECRET wajib diatur...');
   return fallbackSecret;
 }
 
