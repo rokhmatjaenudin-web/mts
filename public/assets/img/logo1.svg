@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Logo MTs Arrobiyah Azzain">
+  <defs>
+    <linearGradient id="g" x1="20" x2="140" y1="18" y2="142" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D4AF37"/>
+      <stop offset=".45" stop-color="#0F8B6D"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="80" r="72" fill="#fff"/>
+  <circle cx="80" cy="80" r="66" fill="url(#g)"/>
+  <path fill="#fff" d="M80 27c15 18 35 28 35 53 0 23-16 42-35 53-19-11-35-30-35-53 0-25 20-35 35-53Z" opacity=".95"/>
+  <path fill="#0F8B6D" d="M80 47c10 12 24 19 24 35 0 15-11 28-24 36-13-8-24-21-24-36 0-16 14-23 24-35Z"/>
+  <path fill="#D4AF37" d="M50 108c20 11 40 11 60 0-6 16-19 25-30 31-11-6-24-15-30-31Z"/>
+  <text x="80" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#fff">AA</text>
+</svg>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>Template Surat Kelulusan</title>
+  <style>
+    body { font-family: "Times New Roman", serif; color: #111827; }
+    .letter { width: 794px; min-height: 1123px; padding: 58px; margin: auto; background: #fff; }
+    .head { display: flex; align-items: center; justify-content: center; gap: 18px; text-align: center; }
+    .head img { width: 84px; }
+    h1, h2 { text-align: center; color: #0F172A; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    td { padding: 8px; border-bottom: 1px solid #e5e7eb; }
+    .foot { display: flex; justify-content: space-between; align-items: end; margin-top: 48px; }
+    .stamp { border: 4px solid rgba(212,175,55,.75); border-radius: 50%; width: 118px; height: 118px; display: grid; place-items: center; color: #0F8B6D; font-weight: 900; transform: rotate(-14deg); }
+  </style>
+</head>
+<body>
+  <main class="letter">
+    <div class="head">
+      <img src="../public/assets/img/logo.svg" alt="Logo">
+      <div>
+        <h1>MTs ARROBIYAH AZZAIN</h1>
+        <p>Surat Keterangan Kelulusan Tahun Ajaran 2025/2026</p>
+      </div>
+    </div>
+    <hr>
+    <h2>SURAT KETERANGAN KELULUSAN</h2>
+    <p>Nomor: {{Nomor SKTL}}</p>
+    <p>Dengan ini menerangkan bahwa siswa {{Nama}} dengan NISN {{NISN}} dinyatakan {{Status Kelulusan}}.</p>
+    <div class="foot">
+      <div>{{QR_CODE}}</div>
+      <div>
+        <p>{{Tanggal}}</p>
+        <p>Kepala Sekolah</p>
+        <div class="stamp">LULUS</div>
+        <strong>Kepala MTs Arrobiyah Azzain</strong>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

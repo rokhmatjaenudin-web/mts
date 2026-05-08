@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Kelulusan | MTs Arrobiyah Azzain</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+  <section id="loginScreen" class="login-screen">
+    <form id="loginForm" class="login-card">
+      <img src="/assets/img/logo.svg" alt="Logo sekolah">
+      <p class="eyebrow">Admin Secure Area</p>
+      <h1>MTs Arrobiyah Azzain</h1>
+      <label>Username<input name="username" autocomplete="username" required></label>
+      <label>Password
+        <span class="password-field">
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+          <button type="button" id="showPassword"><i class="fa-solid fa-eye"></i></button>
+        </span>
+      </label>
+      <label>Captcha: <strong id="captchaQuestion"></strong><input name="captcha" required></label>
+      <label class="check"><input type="checkbox" name="remember"> Remember me</label>
+      <button class="btn primary" type="submit">Login</button>
+    </form>
+  </section>
+
+  <section id="adminApp" class="admin-app hidden">
+    <aside class="sidebar">
+      <div class="admin-brand">
+        <img src="/assets/img/logo.svg" alt="Logo">
+        <div><strong>Kelulusan 2026</strong><span>MTs Arrobiyah Azzain</span></div>
+      </div>
+      <nav>
+        <a href="#dashboard" class="active"><i class="fa-solid fa-chart-line"></i>Dashboard</a>
+        <a href="#siswa"><i class="fa-solid fa-users"></i>Data Siswa</a>
+        <a href="#import"><i class="fa-solid fa-file-import"></i>Import Excel</a>
+        <a href="#backup"><i class="fa-solid fa-database"></i>Backup & Restore</a>
+        <a href="#settings"><i class="fa-solid fa-gear"></i>Pengaturan</a>
+      </nav>
+      <button id="logoutBtn" class="btn ghost"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <p class="eyebrow">Dashboard Admin</p>
+          <h1>Premium Graduation Console</h1>
+        </div>
+        <div class="topbar-actions">
+          <a class="btn ghost" href="/" target="_blank"><i class="fa-solid fa-globe"></i>Lihat Website</a>
+          <button id="refreshBtn" class="btn primary"><i class="fa-solid fa-rotate"></i>Refresh</button>
+        </div>
+      </header>
+
+      <section id="dashboard" class="panel-section">
+        <div class="stats-grid">
+          <article class="stat-card"><span>Total Siswa</span><strong id="totalStudents">0</strong><i class="fa-solid fa-users"></i></article>
+          <article class="stat-card"><span>Lulus</span><strong id="passedStudents">0</strong><i class="fa-solid fa-circle-check"></i></article>
+          <article class="stat-card"><span>Lulus Bersyarat</span><strong id="conditionalStudents">0</strong><i class="fa-solid fa-triangle-exclamation"></i></article>
+          <article class="stat-card"><span>Tidak Lulus</span><strong id="failedStudents">0</strong><i class="fa-solid fa-circle-xmark"></i></article>
+        </div>
+        <div class="dashboard-grid">
+          <article class="panel"><h2>Statistik Kelulusan</h2><canvas id="graduationChart" height="120"></canvas></article>
+          <article class="panel"><h2>Aktivitas Terbaru</h2><div id="activityList" class="activity-list"></div></article>
+        </div>
+      </section>
+
+      <section id="siswa" class="panel-section">
+        <div class="section-head">
+          <div><h2>Data Siswa</h2><p>CRUD data siswa tersinkron dengan spreadsheet.</p></div>
+          <button id="addStudentBtn" class="btn primary"><i class="fa-solid fa-plus"></i>Tambah Data</button>
+        </div>
+        <div class="tool-row">
+          <input id="studentSearch" placeholder="Cari nama, NISN, NIS...">
+          <a class="btn ghost" href="/api/export.xlsx" id="exportExcel"><i class="fa-solid fa-file-excel"></i>Export Excel</a>
+          <button id="exportCsv" class="btn ghost"><i class="fa-solid fa-file-csv"></i>Export CSV</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>NISN</th><th>Nama</th><th>Nomor Peserta</th><th>Status</th><th>Kelulusan</th><th>Aksi</th></tr></thead>
+            <tbody id="studentRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="import" class="panel-section">
+        <div class="panel">
+          <h2>Import Excel</h2>
+          <div id="dropzone" class="dropzone">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <strong>Drop file .xlsx di sini</strong>
+            <span>atau klik untuk memilih file</span>
+            <input id="excelInput" type="file" accept=".xlsx,.xls">
+          </div>
+          <div class="progress"><span id="importProgress"></span></div>
+          <div id="importPreview" class="table-wrap"></div>
+        </div>
+      </section>
+
+      <section id="backup" class="panel-section">
+        <div class="dashboard-grid">
+          <article class="panel">
+            <h2>Backup Database</h2>
+            <p>Unduh snapshot JSON seluruh data dan pengaturan.</p>
+            <a id="backupBtn" class="btn primary" href="/api/backup.json"><i class="fa-solid fa-download"></i>Download Backup</a>
+          </article>
+          <article class="panel">
+            <h2>Restore Database</h2>
+            <input id="restoreInput" type="file" accept=".json">
+            <button id="restoreBtn" class="btn ghost"><i class="fa-solid fa-upload"></i>Restore Backup</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="settings" class="panel-section">
+        <form id="settingsForm" class="panel settings-form">
+          <h2>Pengaturan Kelulusan & Website</h2>
+          <label>Nama Sekolah<input name="schoolName"></label>
+          <label>Tahun Ajaran<input name="academicYear"></label>
+          <label>Waktu Buka Pengumuman<input name="announcementOpenAt" type="datetime-local"></label>
+          <label>Running Text<textarea name="runningText"></textarea></label>
+          <label>Kontak WhatsApp<input name="contact"></label>
+          <label>Alamat<textarea name="address"></textarea></label>
+          <label class="check"><input name="locked" type="checkbox"> Kunci sistem sebelum waktu aktif</label>
+          <button class="btn primary" type="submit"><i class="fa-solid fa-floppy-disk"></i>Simpan Pengaturan</button>
+        </form>
+      </section>
+    </main>
+  </section>
+
+  <dialog id="studentModal">
+    <form id="studentForm" class="modal-card">
+      <h2>Data Siswa</h2>
+      <div class="form-grid">
+        <label>Nomor SKTL<input name="Nomor SKTL" required></label>
+        <label>NISN<input name="NISN" required></label>
+        <label>NIS<input name="NIS"></label>
+        <label>Nama<input name="Nama" required></label>
+        <label>Nomor peserta<input name="Nomor peserta"></label>
+        <label>Status<input name="Status" value="Aktif"></label>
+        <label>Status Kelulusan
+          <select name="Status Kelulusan">
+            <option>LULUS</option>
+            <option>LULUS BERSYARAT</option>
+            <option>TIDAK LULUS</option>
+          </select>
+        </label>
+        <label>Foto URL<input name="Foto"></label>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn ghost" id="cancelStudent">Batal</button>
+        <button type="submit" class="btn primary">Simpan</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="/assets/js/admin.js" type="module"></script>
+</body>
+</html>

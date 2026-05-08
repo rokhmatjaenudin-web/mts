@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F8B6D">
+  <meta name="description" content="Website resmi pengumuman kelulusan MTs Arrobiyah Azzain Tahun Ajaran 2025/2026.">
+  <title>Pengumuman Kelulusan | MTs Arrobiyah Azzain</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="loader-mark"><span></span></div>
+    <p>Menyiapkan sistem kelulusan...</p>
+  </div>
+
+  <header class="site-header glass">
+    <a class="brand" href="#beranda" aria-label="Beranda">
+      <img src="/assets/img/logo.svg" alt="Logo MTs Arrobiyah Azzain" width="44" height="44">
+      <span>MTs Arrobiyah Azzain</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#beranda">Beranda</a>
+      <a href="#cek">Cek Kelulusan</a>
+      <a href="#pengumuman">Pengumuman</a>
+      <a href="#surat">Download Surat</a>
+      <a href="#kontak">Kontak</a>
+      <a href="/admin/dashboard.html">Admin</a>
+    </nav>
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle tema"><i class="fa-solid fa-moon"></i></button>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+  </header>
+
+  <main>
+    <section id="beranda" class="hero">
+      <div class="ornament ornament-a"></div>
+      <div class="ornament ornament-b"></div>
+      <div class="hero-bg"></div>
+      <div class="hero-content" data-aos="fade-up">
+        <img class="hero-logo floating" src="/assets/img/logo.svg" alt="Logo sekolah">
+        <p class="eyebrow">Premium School Graduation System 2026</p>
+        <h1>PENGUMUMAN KELULUSAN SISWA</h1>
+        <p class="hero-subtitle">MTs Arrobiyah Azzain Tahun Ajaran 2025/2026</p>
+
+        <div class="hero-panel glass">
+          <div>
+            <span>Jam WIB</span>
+            <strong id="clock">00:00:00</strong>
+          </div>
+          <div>
+            <span>Tanggal</span>
+            <strong id="date">-</strong>
+          </div>
+          <div>
+            <span>Menuju Pengumuman</span>
+            <strong id="countdown">-</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#cek"><i class="fa-solid fa-magnifying-glass"></i>Cek Kelulusan</a>
+          <a class="btn ghost" href="#surat"><i class="fa-solid fa-file-pdf"></i>Download Surat</a>
+          <a class="btn ghost" href="#kontak"><i class="fa-brands fa-whatsapp"></i>Hubungi Sekolah</a>
+        </div>
+      </div>
+      <div class="running-text">
+        <span id="runningText">Pengumuman resmi kelulusan akan dibuka sesuai jadwal sekolah.</span>
+      </div>
+    </section>
+
+    <section id="cek" class="section split-section">
+      <div class="section-copy" data-aos="fade-right">
+        <p class="eyebrow">Cek Kelulusan</p>
+        <h2>Satu NISN, hasil resmi yang terverifikasi.</h2>
+        <p>Masukkan NISN siswa. Sistem akan melakukan validasi, pencarian realtime, dan menampilkan hasil dengan QR verifikasi serta opsi cetak PDF.</p>
+      </div>
+      <div class="search-card glass" data-aos="fade-left">
+        <form id="searchForm" autocomplete="off">
+          <label for="nisnInput">NISN</label>
+          <div class="search-box">
+            <i class="fa-solid fa-id-card"></i>
+            <input id="nisnInput" name="nisn" inputmode="numeric" maxlength="12" placeholder="Contoh: 0098765432" required>
+            <button type="submit" class="btn primary small">Cek</button>
+          </div>
+          <div class="suggestions" id="suggestions"></div>
+        </form>
+        <div id="searchState" class="search-state"></div>
+        <article id="resultCard" class="result-card hidden"></article>
+      </div>
+    </section>
+
+    <section id="pengumuman" class="section announcement-band">
+      <div data-aos="fade-up">
+        <p class="eyebrow">Pengumuman</p>
+        <h2>Pengumuman belum dibuka</h2>
+        <p id="announcementMessage">Akses hasil kelulusan mengikuti waktu resmi yang ditentukan sekolah.</p>
+      </div>
+      <div class="stats-mini glass" data-aos="zoom-in">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Data terenkripsi dalam sesi aman, siap sinkron dengan Google Spreadsheet.</span>
+      </div>
+    </section>
+
+    <section id="surat" class="section download-section">
+      <div class="download-panel glass" data-aos="fade-up">
+        <div>
+          <p class="eyebrow">Download Surat</p>
+          <h2>Surat Keterangan Kelulusan siap dibuat otomatis.</h2>
+          <p>Setelah hasil ditemukan, tombol unduh dan cetak PDF akan aktif dengan kop sekolah, nomor SKTL, QR verifikasi, tanda tangan, dan stempel digital.</p>
+        </div>
+        <button class="btn primary" id="downloadLast" disabled><i class="fa-solid fa-download"></i>Download PDF Terakhir</button>
+      </div>
+    </section>
+
+    <section id="kontak" class="section contact-grid">
+      <div data-aos="fade-up">
+        <p class="eyebrow">Kontak Sekolah</p>
+        <h2>Butuh bantuan verifikasi?</h2>
+        <p>Hubungi panitia kelulusan melalui kontak resmi sekolah.</p>
+      </div>
+      <div class="contact-card glass" data-aos="fade-up" data-aos-delay="100">
+        <i class="fa-brands fa-whatsapp"></i>
+        <strong>WhatsApp Sekolah</strong>
+        <a id="waContact" href="https://wa.me/6281234567890">+62 812-3456-7890</a>
+      </div>
+      <div class="contact-card glass" data-aos="fade-up" data-aos-delay="200">
+        <i class="fa-solid fa-location-dot"></i>
+        <strong>Alamat</strong>
+        <span id="schoolAddress">Indonesia</span>
+      </div>
+    </section>
+  </main>
+
+  <div id="lockedOverlay" class="locked-overlay hidden">
+    <div class="glass locked-card">
+      <img src="/assets/img/logo.svg" alt="Logo sekolah">
+      <h2>Pengumuman belum dibuka</h2>
+      <p>Akses hasil kelulusan akan terbuka otomatis sesuai jadwal resmi.</p>
+      <strong id="lockedCountdown">-</strong>
+    </div>
+  </div>
+
+  <template id="letterTemplate">
+    <div class="letter">
+      <div class="letter-head">
+        <img src="/assets/img/logo.svg" alt="Logo">
+        <div>
+          <h2>MTs ARROBIYAH AZZAIN</h2>
+          <p>Surat Keterangan Kelulusan Tahun Ajaran 2025/2026</p>
+        </div>
+      </div>
+      <hr>
+      <h3>SURAT KETERANGAN KELULUSAN</h3>
+      <p>Nomor: <span data-field="Nomor SKTL"></span></p>
+      <p>Dengan ini menerangkan bahwa siswa berikut:</p>
+      <table>
+        <tr><td>Nama</td><td data-field="Nama"></td></tr>
+        <tr><td>NISN</td><td data-field="NISN"></td></tr>
+        <tr><td>NIS</td><td data-field="NIS"></td></tr>
+        <tr><td>Nomor Peserta</td><td data-field="Nomor peserta"></td></tr>
+      </table>
+      <p>dinyatakan <strong data-field="Status Kelulusan"></strong> berdasarkan hasil rapat kelulusan MTs Arrobiyah Azzain.</p>
+      <div class="letter-foot">
+        <div id="letterQr"></div>
+        <div>
+          <p id="letterDate"></p>
+          <p>Kepala Sekolah</p>
+          <div class="stamp">LULUS</div>
+          <strong>Kepala MTs Arrobiyah Azzain</strong>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <audio id="bgMusic" loop preload="none">
+    <source src="" type="audio/mpeg">
+  </audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="/assets/js/app.js" type="module"></script>
+</body>
+</html>

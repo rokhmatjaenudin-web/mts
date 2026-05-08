@@ -1,0 +1,41 @@
+{
+  "name": "mts-arrobiyah-azzain-graduation-system",
+  "version": "1.0.0",
+  "description": "Premium web pengumuman kelulusan MTs Arrobiyah Azzain 2025/2026 dengan Express, Google Spreadsheet, dashboard admin, import Excel, PDF, QR, dan PWA.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "lint": "node --check backend/server.js && node --check backend/auth.js && node --check backend/spreadsheet.js && node --check backend/firebase.js"
+  },
+  "keywords": [
+    "graduation",
+    "school",
+    "express",
+    "google-sheets",
+    "pwa"
+  ],
+  "author": "MTs Arrobiyah Azzain",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "firebase-admin": "^13.0.2",
+    "googleapis": "^144.0.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.2",
+    "validator": "^13.12.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
